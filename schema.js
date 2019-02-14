@@ -56,6 +56,9 @@ const RootQuery = new GraphQLObjectType({
                     .then(res => res.data);
             }
         },
+
+
+        // Rockets
         rockets: {
             type: new GraphQLList(RocketType),
             resolve(parent, args) {
