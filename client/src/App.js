@@ -11,7 +11,7 @@ import Launch from './components/Launch';
 
 
 const client = new ApolloClient({
-    uri: 'http://localhost:5000/graphql' // BE data link
+    uri: '/graphql' // BE data link
 });
 
 

@@ -2,7 +2,7 @@ const express = require('express');
 const graphqlHTTP = require('express-graphql');
 const cors = require('cors');
 const schema = require('./schema');
-
+const path = require('path');
 
 // init app
 const app = express();
@@ -17,6 +17,12 @@ app.use('/graphql', graphqlHTTP({
     schema,
     graphiql: true
 }));
+
+
+app.use(exports.static('public'));
+app.get('*', (req, res) => {
+    res.sendFile(path.resolve(__dirname, 'public', 'index.html'));
+});
 
 
 // start server
