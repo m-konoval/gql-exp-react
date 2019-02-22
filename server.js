@@ -3,9 +3,17 @@ const graphqlHTTP = require('express-graphql');
 const cors = require('cors');
 const schema = require('./schema');
 const path = require('path');
+const mongoose = require('mongoose');
 
 // init app
 const app = express();
+
+mongoose.connect(
+        'mongodb://mongo:27017/docker-node-mongo',
+        {useNewUrlParser: true}
+    )
+    .then(() => console.log('Db connect succsess'))
+    .catch(err => console.log(`DB connect fail: ${err}`));
 
 
 // Allow cross-origin
